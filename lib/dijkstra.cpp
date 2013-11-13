@@ -1,10 +1,4 @@
-const int INF = 1e9;
-
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-
-vector<vii> AdjList;
+vector<vector<ii> > AdjList; // pair<node, cost>
 int V, E, s, t;
 
 int dijsktra(int s, int t) { // variant will leave duplicate nodes in queue
@@ -26,5 +20,3 @@ int dijsktra(int s, int t) { // variant will leave duplicate nodes in queue
     }
     return dist[t];
 }
-
-

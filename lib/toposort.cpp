@@ -1,6 +1,5 @@
 
 vi ts; // Result in reverse order
-
 void topo(int u) {
     seen[u] = 1; // Init to false
     for (int i = 0; i < (int)adj_list[u].size(); ++i) {
@@ -16,6 +15,4 @@ ts.clear();
 // init seen to false
 for (int i = 0; i < n; ++i)
     if (!seen[i]) topo(i);
-
-reverse(ts.begin(), ts.end()); // Or traverse in reverse...
 

@@ -1,20 +1,4 @@
-// Alt1 O(n2)
-int lis[MAX], lis_id[MAX], a[MAX], p[MAX];
-
-int len = 0, lis_end = 0;
-for (int i = 0; i < n; ++i) {
-    int pos = lower_bound(lis, lis + len, a[i]) - lis;
-    lis[pos] = a[i];
-    lis_id[pos] = i;
-    p[i] = pos ? lis_id[pos - 1] : -1;
-    if (pos + 1 >= len) {
-        len = pos + 1;
-        lis_end = i;
-    }
-}
-
-// Alt2 O(n log n)
-vi lis(vi a) { // Return lis array
+vi lis(vi a) {
     int L[MAX];
 
     vi dp(a.size());
@@ -31,6 +15,6 @@ vi lis(vi a) { // Return lis array
         }
     }
 
-    return dp;
+    return dp; // Return lis array
 }
 

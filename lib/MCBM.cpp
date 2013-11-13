@@ -1,4 +1,3 @@
-
 vector<vi> AdjList; // initialize
 vi match, vis;
 
@@ -16,12 +15,9 @@ int aug(int l) { // return 1 if augmenting path is found, 0 otherwise
 }
 
 // in main
-int MCBM = 0;
+int MCBM = 0; // result
 match.assign(V, -1);
 for (int l = 0; l < n; ++l) {
     vis.assign(n, 0);
     MCBM += aug(l);
 }
-
-printf("%d\n", MCBM);
-

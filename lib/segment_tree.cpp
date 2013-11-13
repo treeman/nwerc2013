@@ -1,14 +1,11 @@
-
-// Max range query. Change >= to <= for min.
-class SegmentTree {
+class SegmentTree { // Max range query. Change >= to <= for min.
     vi st, a;
 
     int n;
     int left(int p) { return p << 1; } // Same as binary heap
     int right(int p) { return (p << 1) + 1; }
 
-    // O(n log n)
-    void build(int p, int l, int r) {
+    void build(int p, int l, int r) { // O(n log n)
         if (l == r)
             st[p] = l;
         else {
@@ -19,8 +16,7 @@ class SegmentTree {
         }
     }
 
-    // O(log n)
-    int rmq(int p, int l, int r, int i, int j) {
+    int rmq(int p, int l, int r, int i, int j) { // O(log n)
         if (i > r || j < l) return -1; // outside of range
         if (l >= i && r <= j) return st[p]; // inside range
 
@@ -47,8 +43,7 @@ class SegmentTree {
         p1 = update_point(left(p), l, (l + r) / 2, idx, new_value);
         p2 = update_point(right(p), (l + r) / 2, r, idx, new_value);
 
-        // Max query
-        return st[p] = (a[p1] >= a[p2]) ? p1 : p2;
+        return st[p] = (a[p1] >= a[p2]) ? p1 : p2; // Max query
     }
 public:
     SegmentTree(const vi &_a) {
@@ -65,5 +60,3 @@ public:
         return update_point(1, 0, n - 1, idx, new_value);
     }
 };
-
-

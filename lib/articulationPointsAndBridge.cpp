@@ -1,5 +1,3 @@
-const int UNVISITED = -1;
-
 void articulationPointAndBridge(int u) {
     dfs_low[u] = dfs_num[u] = dfsNumberCounter++; // dfs_low[u] <= dfs_num[u]
     for (int j = 0; j < (int)AdjList[u].size(); ++j) {
@@ -34,9 +32,4 @@ for (int i = 0; i < V; ++i)
         articulationPointAndBridge(i);
         articulation_vertex[dfsRoot] = (rootChildren > 1);
     }
-
-printf("Articulation Points:\n");
-for (int i = 0; i < V; ++i)
-    if (articulation_vertex[i])
-        printf(" Vertex %d\n");
-
+// articulation_vertex contains Articulation Points

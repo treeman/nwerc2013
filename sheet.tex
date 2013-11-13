@@ -1,0 +1,204 @@
+\documentclass[twocolumn,8pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{pdflscape}
+\usepackage[left=0.5cm,top=1cm,right=0.5cm,bottom=2cm,bindingoffset=0.5cm,a4paper,landscape]{geometry}
+\usepackage{tocloft}
+\usepackage{titlesec}
+\usepackage{mdwlist}
+\usepackage{amsmath}
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
+\setlength{\tabcolsep}{0mm}
+
+\lstset{
+         basicstyle=\footnotesize\ttfamily,
+         %numbers=left,
+         %numberstyle=\tiny,
+         numbersep=5pt,
+         tabsize=2,
+         extendedchars=true,
+         breaklines=true,
+         showspaces=false,
+         showtabs=false,
+         showstringspaces=false
+         xleftmargin=10pt,
+         framexleftmargin=10pt,
+         framexrightmargin=5pt,
+         framexbottommargin=6pt,
+}
+
+\setcounter{secnumdepth}{-2} % Ignore numbering on sections
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Dots on sections
+
+% {cmd}{left spacing}{before spacing}{after spacing}
+\titlespacing\section{0pt}{4pt plus 2pt minus 2pt}{2pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{10pt}{}
+\titleformat{\subsection}{\bfseries}{\thesection}{8pt}{}
+
+\setlength{\tabcolsep}{5pt}
+
+\begin{document}
+
+\thispagestyle{empty}
+%\newgeometry{margin=1cm}
+
+\makeatletter
+\@starttoc{toc}
+\makeatother
+
+\section{Intro}
+
+\subsection{Shortcuts}
+
+\lstinputlisting[language=C++]{./lib/shortcuts.cpp}
+
+\subsection{Complexity}
+
+Modern CPU compute 100M in 3s.
+
+\begin{center}
+    \begin{tabular}{ l l p{5cm}}
+    \hline
+    $n$             &   Worst AC Algorithm              & Problem \\ \hline
+    $\leq [10..11]$ &   $\BigO{n!}, \BigO{n^6}$        & e.g. Enumerating permutations \\
+    $\leq [15..18]$ &   $\BigO{2^n n^2} $              & e.g. DP TSP\\
+    $\leq [18..22]$ &   $\BigO{2^n n} $                & e.g. DP with bitmask \\
+    $\leq 100$      &   $\BigO{n^4} $                  & e.g. DP with 3 dimensions \\
+    $\leq 400$      &   $\BigO{n^3} $                  & e.g. Floyd Warshall's \\
+    $\leq 2K$       &   $\BigO{n^2 log n} $            & e.g. 2 loops + a tree-related DS \\
+    $\leq 10K$      &   $\BigO{n^2} $                  & e.g. Selection/Insert sort \\
+    $\leq 1M$       &   $\BigO{n log n} $              & e.g. Building Segment Tree  \\
+    $\leq 100M$     &   $\BigO{n} $                    & I/O bottleneck \\
+    \end{tabular}
+\end{center}
+
+\subsection{Limits}
+
+32-bit int $2^{31} - 1 = 2147483647$
+
+64-bit signed long long upper limit $2^{63} - 1 = 9223372036854775807$
+
+
+\section{Math}
+
+\lstinputlisting[language=C++]{./lib/math.cpp}
+
+\subsection{Primes}
+
+\lstinputlisting[language=C++]{./lib/primes.cpp}
+
+\subsection{Java BigInteger}
+
+\lstinputlisting[language=Java]{./lib/bigInteger.java}
+
+\subsection{Combinatorics}
+
+$C(n,0) = C(n,n) = 1$
+
+$C(n,k) = C(n - 1, k - 1) + C(n - 1, k)$
+
+\subsection{Catalan numbers}
+
+\begin{enumerate*}
+    \item $Cat(n)$ Count the number of distinct binary trees with $n$ vertices.
+    \item Count number of expressions counting $n$ correctly matched pairs of parentheses.
+    \item Count ways a convex polygon can be triangulated.
+\end{enumerate*}
+
+$Cat(0) = 1$
+
+$Cat(n + 1) = \frac{(2n + 2)(2n + 1)}{(n + 2)(n + 1)} * Cat(n)$
+
+\subsection{Cycle Finding}
+TODO
+
+\subsection{Game Theory}
+TODO
+
+\subsection{Linear Diphantine Equation}
+TODO
+
+
+\section{DP}
+
+\subsection{LIS $\BigO{n log n}$}
+\lstinputlisting[language=C++]{./lib/lis.cpp}
+
+
+\section{Data structures}
+
+\subsection{Union Find}
+\lstinputlisting[language=C++]{./lib/union_find.cpp}
+
+\subsection{Segment Tree}
+\lstinputlisting[language=C++]{./lib/segment_tree.cpp}
+
+
+\section{Graph}
+
+\subsection{Kruskal MST}
+\lstinputlisting[language=C++]{./lib/kruskal.cpp}
+
+\subsection{Bipartite check}
+\lstinputlisting[language=C++]{./lib/is_bipartite.cpp}
+
+\subsection{Maximum Bipartite Cardinality Matching}
+\lstinputlisting[language=C++]{./lib/MCBM.cpp}
+
+\subsection{Articulation points and bridges}
+\lstinputlisting[language=C++]{./lib/articulationPointsAndBridge.cpp}
+
+\subsection{Dijkstra}
+\lstinputlisting[language=C++]{./lib/dijkstra.cpp}
+
+\subsection{Bellman Ford}
+\lstinputlisting[language=C++]{./lib/bellman_ford.cpp}
+
+\subsection{Euler Tour}
+\lstinputlisting[language=C++]{./lib/euler.cpp}
+
+\subsection{Edmond Karp}
+\lstinputlisting[language=C++]{./lib/edmonds_karp.cpp}
+
+\subsection{Flood Fill}
+\lstinputlisting[language=C++]{./lib/floodfill.cpp}
+
+\subsection{Topological Sort}
+\lstinputlisting[language=C++]{./lib/toposort.cpp}
+
+\subsection{Strongly Connected Components}
+\lstinputlisting[language=C++]{./lib/tarjanSCC.cpp}
+
+\subsection{Chinese Postman}
+\lstinputlisting[language=C++]{./lib/chinese_postman.cpp}
+
+
+\section{String}
+
+\subsection{Knuth-Morris-Pratt}
+TODO
+
+\subsection{Edit Distance}
+TODO
+
+\subsection{LCS}
+TODO
+
+\subsection{Suffix Trie}
+TODO
+
+
+\section{Geometry}
+
+TODO
+
+\subsection{Convex Hull}
+
+TODO
+
+
+\end{document}
+

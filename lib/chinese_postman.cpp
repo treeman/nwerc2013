@@ -1,6 +1,5 @@
 // Weight of euler tour in connected graph.
 // Need to fill d[][] with min cost between any two nodes. Do floyd warshall before.
-
 int memo[1 << MAX]; // dp bitmask memo structure
 
 // Min cost of increasing by one the degree of set of the given odd vertices, to make them even.
