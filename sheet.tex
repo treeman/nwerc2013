@@ -8,11 +8,19 @@
 \usepackage{titlesec}
 \usepackage{mdwlist}
 \usepackage{amsmath}
+\usepackage{color}
+\usepackage{multicol}
 \newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
 \setlength{\tabcolsep}{0mm}
 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 \lstset{
          basicstyle=\footnotesize\ttfamily,
+         keywordstyle=\color{blue},          % keyword style
+         commentstyle=\color{dkgreen},       % comment style
+         stringstyle=\color{mauve},         % string literal style
          %numbers=left,
          %numberstyle=\tiny,
          numbersep=5pt,
@@ -126,7 +134,7 @@ $Cat(n) = \frac{2(2n - 1)}{n + 1} * Cat(n - 1)$
 \lstinputlisting[language=C++]{./lib/extended_euclid.cpp}
 
 \subsection{Cycle Finding}
-TODO
+\lstinputlisting[language=C++]{./lib/floydCycleFinding.cpp}
 
 \subsection{Game Theory}
 TODO
