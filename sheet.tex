@@ -98,9 +98,9 @@ TODO sin/cos
 
 \subsection{Java BigInteger}
 
-TODO fib example
-
 \lstinputlisting[language=Java]{./lib/bigInteger.java}
+
+\lstinputlisting[language=Java]{./lib/catalan.java}
 
 \subsection{Combinatorics}
 
@@ -110,6 +110,8 @@ $C(n,k) = C(n - 1, k - 1) + C(n - 1, k)$
 
 \subsection{Catalan numbers}
 
+$[0..10]$ $ 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796$
+
 \begin{enumerate*}
     \item $Cat(n)$ Count the number of distinct binary trees with $n$ vertices.
     \item Count number of expressions counting $n$ correctly matched pairs of parentheses.
@@ -118,7 +120,7 @@ $C(n,k) = C(n - 1, k - 1) + C(n - 1, k)$
 
 $Cat(0) = 1$
 
-$Cat(n + 1) = \frac{(2n + 2)(2n + 1)}{(n + 2)(n + 1)} * Cat(n)$
+$Cat(n) = \frac{2(2n - 1)}{n + 1} * Cat(n - 1)$
 
 \subsection{Extended Euclid: Linear Diphantine Equation}
 \lstinputlisting[language=C++]{./lib/extended_euclid.cpp}
