@@ -10,6 +10,7 @@
 \usepackage{amsmath}
 \usepackage{color}
 \usepackage{multicol}
+\usepackage{fancyhdr}
 \newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
 \setlength{\tabcolsep}{0mm}
 
@@ -47,11 +48,23 @@
 \titleformat{\subsection}{\bfseries}{\thesection}{8pt}{}
 
 \setlength{\tabcolsep}{5pt}
+\setlength{\headheight}{9pt}
+\setlength{\headsep}{9pt}
+
+\fancypagestyle{tcr}{%
+  \fancyhf{} %clear all headers and footers fields
+  \fancyhead[R]{\thepage}
+  \fancyhead[L]{\textbf{Linköping University}}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
 
 \begin{document}
 
-\thispagestyle{empty}
+%\thispagestyle{empty}
 %\newgeometry{margin=1cm}
+
+\thispagestyle{tcr}
+\pagestyle{tcr}
 
 \makeatletter
 \@starttoc{toc}
@@ -85,9 +98,9 @@ Modern CPU compute 100M in 3s.
 
 \subsection{Limits}
 
-32-bit int $2^{31} - 1 = 2147483647$
+32-bit int $2^{31} - 1 = 2147483647 \approx 10^{10}$
 
-64-bit signed long long upper limit $2^{63} - 1 = 9223372036854775807$
+64-bit signed long long upper limit $2^{63} - 1 = 9223372036854775807 \approx 10^{18}$
 
 
 \section{Math}
@@ -109,6 +122,14 @@ TODO sin/cos
 \lstinputlisting[language=Java]{./lib/bigInteger.java}
 
 \lstinputlisting[language=Java]{./lib/catalan.java}
+
+\subsection{Fibonacci}
+
+$[0..15]$ $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610$
+
+$F(0) = 0, F(1) = 1$
+
+$F(n) = F(n - 1) + F(n - 2)$
 
 \subsection{Combinatorics}
 
