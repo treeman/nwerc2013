@@ -1,4 +1,3 @@
-
 bool is_bipartite(int s) {
     qi q; q.push(s);
     vi color(n, INF); color[s] = 0;
@@ -17,4 +16,3 @@ bool is_bipartite(int s) {
     }
     return true;
 }
-

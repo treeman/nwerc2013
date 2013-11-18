@@ -1,4 +1,3 @@
-
 int b[MAXN]; // back table
 void kmpPreprocess(string P) {
     int i = 0, j = -1; b[0] = -1;
@@ -21,4 +20,3 @@ void kmpSearch(string T, string P) { // does P match T?
         }
     }
 }
-

@@ -1,4 +1,3 @@
-
 vi ts; // Result in reverse order
 void topo(int u) {
     seen[u] = 1; // Init to false
@@ -15,4 +14,3 @@ ts.clear();
 // init seen to false
 for (int i = 0; i < n; ++i)
     if (!seen[i]) topo(i);
-
