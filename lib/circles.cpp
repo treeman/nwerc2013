@@ -1,3 +1,6 @@
+double DEG_to_RAD(double d) { return d * PI / 180.0; }
+double RAD_to_DEG(double r) { return r * 180.0 / PI; }
+
 // 2: inside, 1: border, 0: outside. Exakt int calc
 int insideCircle(point_i p, point_i c, int r) {
     int dx = p.x - c.x, dy = p.y - c.y;

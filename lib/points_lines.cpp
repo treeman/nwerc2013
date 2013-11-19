@@ -25,11 +25,26 @@ struct vec { double x, y; vec(double _x, double _y) : x(_x), y(_y) { } };
 vec toVec(point a, point b) { return vec(b.x - a.x, b.y - a.y); }
 vec scale(vec v, double s) { return vec(v.x * s, v.y * s); }
 
+double cross(vec a, vec b) { return a.x * b.y - a.y * b.x; }
+
+bool ccw(point p, point q, point r) {
+    return cross(toVec(p, q), toVec(p, r)) > 0;
+}
+
+bool collinear(point p, point q, point r) {
+    return fabs(cross(toVec(p, q), toVec(p, r))) < EPS;
+}
+
 // Move a point
 point translate(point p, vec v) { return point(p.x + v.x, p.y + v.y); }
 
 double dot(vec a, vec b) { return a.x * b.x + a.y * b.y; }
 double norm_sq(vec v) { return v.x * v.x + v.y * v.y; }
+
+double angle(point a, point o, point b) { // return angle aob in rad
+    vec oa = toVec(o, a), ob = toVec(o, b);
+    return acos(dot(0a, ob) / sqrt(norm_sq(oa) * norm_sq(ob)));
+}
 
 // Closest point to the line defined by a and b (must be different!)
 double distToLine(point p, point a, point b, point &c) {
