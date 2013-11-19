@@ -1,5 +1,4 @@
 list<int> cyc; // list for fast insertion in middle
-
 void EulerTour(list<int>::iterator i, int u) {
     for (int j = 0; j < (int)AdjList[u].size(); ++j) {
         ii v = AdjList[u][j];

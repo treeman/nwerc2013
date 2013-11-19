@@ -1,4 +1,4 @@
-\documentclass[twocolumn,8pt]{article}
+\documentclass[a4paper,landscape,8pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{fullpage}
 \usepackage{listings}
@@ -60,21 +60,26 @@
 
 \begin{document}
 
-%\thispagestyle{empty}
-%\newgeometry{margin=1cm}
+% Want front page
+\title{Linköping University TCR 2013}
+\author{LiU Default}
+\date{\today}
+\maketitle
+\pagebreak
 
 \thispagestyle{tcr}
 \pagestyle{tcr}
 
+\begin{multicols}{2}
 \makeatletter
 \@starttoc{toc}
 \makeatother
 
 \section{Intro}
 
-\subsection{Shortcuts}
+\subsection{Template}
 
-\lstinputlisting[language=C++]{./lib/shortcuts.cpp}
+\lstinputlisting[language=C++]{./lib/template.cpp}
 
 \subsection{Complexity}
 
@@ -164,7 +169,7 @@ The Nim Game. Two players take turns to remove objects from distinct heaps. On e
 
 \section{DP}
 
-\subsection{LIS $\BigO{n log k}$}
+\subsection{Longest Increasing Subsequence}
 \lstinputlisting[language=C++]{./lib/lis.cpp}
 
 
@@ -249,5 +254,6 @@ The Nim Game. Two players take turns to remove objects from distinct heaps. On e
 \lstinputlisting[language=C++]{./lib/polygon.cpp}
 
 
+\end{multicols}
 \end{document}
 
