@@ -38,12 +38,25 @@ bool collinear(point p, point q, point r) {
 // Move a point
 point translate(point p, vec v) { return point(p.x + v.x, p.y + v.y); }
 
+// Rotate p by theta degrees CCW w.r.t origin (0, 0)
+point rotate(point p, double theta) { // call with 360 - theta for CW
+    double rad = DEG_to_RAD(theta); // multiply theta with PI / 180.0
+    return point(p.x * cos(rad) - p.y * sin(rad),
+                 p.x * sin(rad) + p.y * cos(rad));
+}
+
+// Rotate p w.r.t pivot
+point rotate_around(point p, point pivot, double angle) {
+    point o = translate(p, vec(-pivot.x, -pivot.y));
+    return translate(rotate(o, angle), toVec(pivot));
+}
+
 double dot(vec a, vec b) { return a.x * b.x + a.y * b.y; }
 double norm_sq(vec v) { return v.x * v.x + v.y * v.y; }
 
 double angle(point a, point o, point b) { // return angle aob in rad
     vec oa = toVec(o, a), ob = toVec(o, b);
-    return acos(dot(0a, ob) / sqrt(norm_sq(oa) * norm_sq(ob)));
+    return acos(dot(a, ob) / sqrt(norm_sq(oa) * norm_sq(ob)));
 }
 
 // Closest point to the line defined by a and b (must be different!)
