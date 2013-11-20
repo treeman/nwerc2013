@@ -108,29 +108,84 @@ Modern CPU compute 100M in 3s.
 64-bit signed long long upper limit $2^{63} - 1 = 9223372036854775807 \approx 10^{18}$
 
 
+\section{Data structures}
+
+\subsection{Union Find}
+\lstinputlisting[language=C++]{./lib/union_find.cpp}
+
+\subsection{Fenwick Tree}
+\lstinputlisting[language=C++]{./lib/fenwick.cpp}
+
+\subsection{Segment Tree}
+\lstinputlisting[language=C++]{./lib/segment_tree.cpp}
+
+
 \section{Math}
 
-TODO tables of $2^x$, $!x, x 1..13$
-
-TODO simple geometric formulas for volumes etc?
-
-TODO sin/cos
-
 \lstinputlisting[language=C++]{./lib/math.cpp}
+
+\[
+  \sum_{k=1}^{\infty} x^k = \frac{1}{1-x}, \vert x \vert < 1
+\]
+\[
+  \sum_{k=1}^{n} x^k = \frac{1-x^n}{1-x}, x \neq 0
+\]
+\[
+  \sum_{k=1}^{n} k = \frac{n(n+1)}{2}
+\]
+\[
+  \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
+\]
+\[
+  \sum_{k=1}^{n} k^2 = \frac{n^2(n+1)^2}{4}
+\]
+
+\[
+  \pi \approx 3.14159265 \approx \frac{355}{113}
+\]
+\[
+  sin(\frac{pi}{4}) = cos(\frac{pi}{4}) = \frac{1}{\sqrt{2}}
+\]
+\[
+  sin(\frac{pi}{3}) = cos(\frac{pi}{6}) = \frac{\sqrt{3}}{2}
+\]
+\[
+  sin(\frac{pi}{6}) = cos(\frac{pi}{3}) = \frac{1}{2}
+\]
+\[
+  \sin(\alpha \pm \beta) = \sin \alpha \cos \beta \pm \cos \alpha \sin \beta
+\]
+\[
+  \cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta\
+\]
+\begin{align*}
+  \sin 2\theta &= 2 \sin \theta \cos \theta \\
+               &= \frac{2 \tan \theta} {1 + \tan^2 \theta}
+\end{align*}
+\begin{align*}
+  \cos 2\theta &= \cos^2 \theta - \sin^2 \theta \\
+               &= 2 \cos^2 \theta - 1 \\
+               &= 1 - 2 \sin^2 \theta \\
+               &= \frac{1 - \tan^2 \theta} {1 + \tan^2 \theta}
+\end{align*}
+\newpage
+
+\subsection{Factorial}
+
+\begin{lstlisting}[language=C++]
+1 1 2 6 24 120 720 5040 40320 362880 3628800 // 0..10
+39916800 479001600 1932053504 // 11..13
+\end{lstlisting}
 
 \subsection{Primes}
 
 \lstinputlisting[language=C++]{./lib/primes.cpp}
 
-\subsection{Java BigInteger}
-
-\lstinputlisting[language=Java]{./lib/bigInteger.java}
-
-\lstinputlisting[language=Java]{./lib/catalan.java}
-
 \subsection{Fibonacci}
 
-$[0..15]$ $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610$
+\begin{lstlisting}[language=C++]
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 // 0..15
+\end{lstlisting}
 
 $F(0) = 0, F(1) = 1$
 
@@ -144,7 +199,9 @@ $C(n,k) = C(n - 1, k - 1) + C(n - 1, k)$
 
 \subsection{Catalan numbers}
 
-$[0..10]$ $ 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796$
+\begin{lstlisting}[language=C++]
+1 1 2 5 14 42 132 429 1430 4862 16796 // 0..10
+\end{lstlisting}
 
 \begin{enumerate*}
     \item $Cat(n)$ Count the number of distinct binary trees with $n$ vertices.
@@ -156,6 +213,13 @@ $Cat(0) = 1$
 
 $Cat(n) = \frac{2(2n - 1)}{n + 1} * Cat(n - 1)$
 
+\subsection{Powers of 2}
+\begin{lstlisting}[language=C++]
+1 2 4 8 16 32 64 128 256 512 1024 // 0..10
+2048 4096 8192 16384 32768 65536  // 11..16
+4294967296 4611686018427387904 // 32, 63
+\end{lstlisting}
+
 \subsection{Extended Euclid: Linear Diphantine Equation}
 \lstinputlisting[language=C++]{./lib/extended_euclid.cpp}
 
@@ -166,23 +230,20 @@ $Cat(n) = \frac{2(2n - 1)}{n + 1} * Cat(n - 1)$
 
 The Nim Game. Two players take turns to remove objects from distinct heaps. On each turn, a player must remove at least one object and may remove any number of objects, but only from the same heap. For the starting player to win, $n_1 \text{\textasciicircum{}} ... \text{\textasciicircum{}} n_k \neq 0$. (bitwise xor)
 
+\subsection{Java BigInteger}
+
+\lstinputlisting[language=Java]{./lib/bigInteger.java}
+
+\lstinputlisting[language=Java]{./lib/catalan.java}
+
 
 \section{DP}
 
 \subsection{Longest Increasing Subsequence}
 \lstinputlisting[language=C++]{./lib/lis.cpp}
 
-
-\section{Data structures}
-
-\subsection{Union Find}
-\lstinputlisting[language=C++]{./lib/union_find.cpp}
-
-\subsection{Fenwick Tree}
-\lstinputlisting[language=C++]{./lib/fenwick.cpp}
-
-\subsection{Segment Tree}
-\lstinputlisting[language=C++]{./lib/segment_tree.cpp}
+\subsection{Knapsack}
+\lstinputlisting[language=C++]{./lib/knapsack.cpp}
 
 
 \section{Graph}
@@ -202,6 +263,9 @@ The Nim Game. Two players take turns to remove objects from distinct heaps. On e
 \subsection{Dijkstra}
 \lstinputlisting[language=C++]{./lib/dijkstra.cpp}
 
+\subsection{Dijkstra Timetable}
+\lstinputlisting[language=C++]{./lib/dijkstra-timetable.cpp}
+
 \subsection{Bellman Ford}
 \lstinputlisting[language=C++]{./lib/bellman_ford.cpp}
 
@@ -210,6 +274,9 @@ The Nim Game. Two players take turns to remove objects from distinct heaps. On e
 
 \subsection{Edmond Karp}
 \lstinputlisting[language=C++]{./lib/edmonds_karp.cpp}
+
+\subsection{Maxflow Binblock}
+\lstinputlisting[language=C++]{./lib/maxflow_binblock.cpp}
 
 \subsection{Flood Fill}
 \lstinputlisting[language=C++]{./lib/floodfill.cpp}
@@ -252,6 +319,15 @@ The Nim Game. Two players take turns to remove objects from distinct heaps. On e
 
 \subsection{Polygons}
 \lstinputlisting[language=C++]{./lib/polygon.cpp}
+
+
+\section{Misc}
+
+\subsection{Interval Cover}
+\lstinputlisting[language=C++]{./lib/interval-cover.cpp}
+
+\subsection{Prefix Sum}
+\lstinputlisting[language=C++]{./lib/prefix_sum.cpp}
 
 
 \end{multicols}

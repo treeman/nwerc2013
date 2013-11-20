@@ -21,16 +21,15 @@ int edmond_karp() {
         while (!q.empty()) {
             int u = q.front(); q.pop();
             if (u == t) break; // stop bfs if we reach t
-            for (int j = 0; j < (int)AdjList[u].size(); ++j) { // faster with AdjList
+            for (int j = 0; j < (int)AdjList[u].size(); ++j) {
                 int v = AdjList[u][j];
                 if (res[u][v] > 0 && !vis[v])
                     vis[v] = true, q.push(v), p[v] = u;
             }
         }
         augment(t, INF);
-        if (f == 0) break;      // we cannot send any more flow, terminate
-        mf += f;                // we can still send a flow, increase the max flow!
+        if (f == 0) break; // we cannot send any more flow, terminate
+        mf += f; // we can still send a flow, increase the max flow!
     }
     return mf;
 }
-

@@ -1,4 +1,5 @@
 // Ideal to answer dynamic Range Sum Queries
+#define LSOne(S) (S & (-S))
 struct FenwickTree {
   vi ft;
   FenwickTree() {}

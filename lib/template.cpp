@@ -27,7 +27,7 @@ typedef pair<int, int> ii; // used in comp prog algorithms
 typedef double fl;
 typedef long double ld;
 typedef long long ll;
-//typedef pair<int, int> pii;
+typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef map<int,int> mii;
