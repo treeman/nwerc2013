@@ -77,10 +77,6 @@
 
 \section{Intro}
 
-\subsection{Template}
-
-\lstinputlisting[language=C++]{./lib/template.cpp}
-
 \subsection{Complexity}
 
 Modern CPU compute 100M in 3s.
@@ -96,7 +92,7 @@ Modern CPU compute 100M in 3s.
     $\leq 400$      &   $\BigO{n^3} $                  & e.g. Floyd Warshall's \\
     $\leq 2K$       &   $\BigO{n^2 log n} $            & e.g. 2 loops + a tree-related DS \\
     $\leq 10K$      &   $\BigO{n^2} $                  & e.g. Selection/Insert sort \\
-    $\leq 1M$       &   $\BigO{n log n} $              & e.g. Building Segment Tree  \\
+    $\leq 1M$       &   $\BigO{n log n} $              & e.g. Building Segment Array  \\
     $\leq 100M$     &   $\BigO{n} $                    & I/O bottleneck \\
     \end{tabular}
 \end{center}
@@ -106,6 +102,13 @@ Modern CPU compute 100M in 3s.
 32-bit int $2^{31} - 1 = 2147483647 \approx 10^{10}$
 
 64-bit signed long long upper limit $2^{63} - 1 = 9223372036854775807 \approx 10^{18}$
+
+\subsection{vimrc}
+\lstinputlisting{./lib/vimrc}
+
+\subsection{Template}
+
+\lstinputlisting[language=C++]{./lib/template.cpp}
 
 
 \section{Data structures}
@@ -121,7 +124,6 @@ Modern CPU compute 100M in 3s.
 
 
 \section{Math}
-
 \lstinputlisting[language=C++]{./lib/math.cpp}
 
 \[
@@ -168,7 +170,6 @@ Modern CPU compute 100M in 3s.
                &= 1 - 2 \sin^2 \theta \\
                &= \frac{1 - \tan^2 \theta} {1 + \tan^2 \theta}
 \end{align*}
-\newpage
 
 \subsection{Factorial}
 
@@ -242,6 +243,13 @@ Two players take turns to remove objects from distinct heaps. On each turn, a pl
 
 \lstinputlisting[language=Java]{./lib/catalan.java}
 
+\subsection{2SAT}
+
+Given 2-CNF $(x_1 \lor x_2) \land (\lnot x_3 \lor x_1) \lor ...$ is it satisfiable?
+
+Rewrite $(a \lor b) \equiv (\lnot a \Rightarrow b) \equiv (\lnot b \Rightarrow a)$.
+
+Build implication graph. Is satisfiable iff no variable is strongly connected with it's negation.  Try assignments for answer.
 
 \section{DP}
 

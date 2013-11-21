@@ -1,0 +1,32 @@
+set nocompatible " explicitly get out of vi-compatible mode
+set backspace=indent,eol,start " make backspace more flexible
+set hidden " you can change buffers without saving
+set expandtab " no real tabs please!
+set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
+set shiftwidth=4 " auto indent amount when using indents ex >> and <<
+set softtabstop=4 " when hitting tab or backspace, how wide should a tab be
+set tabstop=4 " tabs width
+set autoindent " keep indenting after newline
+set smarttab " insert tabs on the start according to shiftwidth, not tabstop
+syntax on " highlight
+" change colorscheme: type ':colorscheme' then space then tab
+" add colorscheme <name> when suitable candidate is found
+set noerrorbells " don't make a noise
+set novisualbell " don't blink
+set showmatch " show matching brackets
+set scrolloff=4 " keep 4 lines top and bottom for scope
+set list " show tabs
+set listchars=tab:>-,trail:- " show tabs and trailing
+set ruler " always show current positions along the bottom
+set showcmd " show the command being typed
+" Better regex searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch " highlight search terms
+set incsearch " show search mathes as you type
+set mouse=a " use mouse everwhere
+set relativenumber " display relative line numbers
+set number " show line numbers
+set laststatus=2
+set ruler " always show current positions along the bottom
+set showcmd " show the command being typed
